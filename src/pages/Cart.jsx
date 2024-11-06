@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CartItem from "../components/CartItem";
+// import { Navigate } from "react-router-dom";
 
 
 const Cart = () => {
 
+  
   const {cart} = useSelector((state) => state);
   console.log("Printing Cart");
   console.log(cart);
@@ -44,10 +46,13 @@ const Cart = () => {
           <p className="text-slate-700 text-xl font-[600] mb-5 ">Total Amount: 
             <span className="font-bold ml-2 text-black">${totalAmount.toFixed(2)}</span>
           </p>
-          <button className="text-lg w-full py-2.5 rounded-lg font-bold text-white bg-[#15803d]
-          border-2 border-[#15803d] hover:bg-white hover:text-[#15803d] transition-all duration-300 ease-in">
-            CheckOut Now
-          </button>
+          <Link to ={"/payment"} > 
+            <button  className="text-lg w-full py-2.5 rounded-lg font-bold text-white bg-[#15803d]
+            border-2 border-[#15803d] hover:bg-white hover:text-[#15803d] transition-all duration-300 ease-in">
+              CheckOut Now
+            </button>
+          </Link> 
+          
         </div>
 
       </div>
@@ -57,7 +62,7 @@ const Cart = () => {
     (<div className="w-screen h-[calc(100vh-80px)] flex flex-col gap-6 justify-center items-center">
       <h1 className="font-[600] text-xl">Your Cart is Empty !</h1>
       <Link to={"/"}>
-        <button className="bg-[#16a34a] text-white text-md uppercase font-[600] py-3 px-10 rounded-md
+        <button  className="bg-[#16a34a] text-white text-md uppercase font-[600] py-3 px-10 rounded-md
         border-[#16a34a] border-2 hover:bg-white hover:text-[#16a34a] ease-in transition-all duration-300">
           Shop Now
         </button>
